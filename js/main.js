@@ -146,16 +146,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const target = parseInt(el.dataset.target, 10);
     const suffix = el.dataset.suffix || '';
     const duration = 2500; // ms (augmenté pour un meilleur rendu visuel)
-    const start = performance.now();
+    let start = null;
 
-    function step(now) {
-      const elapsed = now - start;
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      const elapsed = timestamp - start;
       const progress = Math.min(elapsed / duration, 1);
       // Easing ease-out cubique
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = Math.round(eased * target);
       el.textContent = current + suffix;
-      if (progress < 1) requestAnimationFrame(step);
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = target + suffix; // Assurer la valeur finale
+      }
     }
     requestAnimationFrame(step);
   }
@@ -169,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
           counterObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.1 });
 
     counterEls.forEach(el => counterObserver.observe(el));
   }
