@@ -118,7 +118,7 @@ h4 {
 }
 
 section {
-  padding: 80px 0;
+  padding: 50px 0;
 }
 
 .text-center {
@@ -369,7 +369,7 @@ section {
   grid-template-columns: 60% 40%;
   gap: 48px;
   align-items: center;
-  padding-bottom: 80px;
+  padding-bottom: 40px;
 }
 
 .hero-badge {
@@ -517,7 +517,7 @@ section {
    ===================================================== */
 .logos-carousel {
   background: var(--white);
-  padding: 60px 0;
+  padding: 24px 0;
   overflow: hidden;
 }
 
@@ -1241,7 +1241,7 @@ section {
    ===================================================== */
 .contact {
   background: var(--white);
-  padding: 80px 0;
+  padding: 40px 0;
   text-align: center;
 }
 
@@ -1519,7 +1519,7 @@ section {
    ===================================================== */
 .footer {
   background: #101231;
-  padding: 56px 0 0;
+  padding: 36px 0 0;
 }
 
 .footer-grid {
@@ -1830,7 +1830,7 @@ section {
   }
 
   section {
-    padding: 60px 0;
+    padding: 40px 0;
   }
 
   .top-bar .container {
