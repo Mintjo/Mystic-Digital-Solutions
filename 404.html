@@ -10,12 +10,13 @@
     <!-- PWA & Icônes -->
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" href="mds_icon_classique.webp" type="image/webp" />
-  <link rel="apple-touch-icon" href="mds_icon_classique.webp" />
-  <meta name="theme-color" content="#1B1F3B" />
+    <link rel="apple-touch-icon" href="mds_icon_classique.webp" />
+    <meta name="theme-color" content="#1B1F3B" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.min.css" />
     <style>
         /* ===== 404 PAGE SPECIFIQUE ===== */
         .page-404 {
@@ -267,11 +268,11 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8LZMS2YV5X"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-      gtag('config', 'G-8LZMS2YV5X');
+        gtag('config', 'G-8LZMS2YV5X');
     </script>
 </head>
 
@@ -280,10 +281,12 @@
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="cookie-banner">
         <div class="container cookie-container">
-            <p>Nous utilisons des cookies pour améliorer votre expérience, analyser notre trafic et personnaliser le contenu. En continuant à naviguer sur ce site, vous acceptez notre utilisation des cookies.</p>
+            <p>Nous utilisons des cookies pour améliorer votre expérience, analyser notre trafic et personnaliser le
+                contenu. En continuant à naviguer sur ce site, vous acceptez notre utilisation des cookies.</p>
             <div class="cookie-btns">
                 <button id="cookie-accept" class="btn btn-primary">Accepter</button>
-                <button id="cookie-decline" class="btn btn-outline-white" style="color:#1B1F3B; border-color:#1B1F3B;">Refuser</button>
+                <button id="cookie-decline" class="btn btn-outline-white"
+                    style="color:#1B1F3B; border-color:#1B1F3B;">Refuser</button>
             </div>
         </div>
     </div>
@@ -292,7 +295,8 @@
     <!-- HEADER -->
     <header class="header" id="header">
         <div class="container">
-            <a href="#" class="logo"><img src="mds_base_transparent.webp" alt="MDS - Mystic Digital Solutions" class="logo-img" /></a>
+            <a href="#" class="logo"><img src="mds_base_transparent.webp" alt="MDS - Mystic Digital Solutions"
+                    class="logo-img" /></a>
             <nav class="nav-links">
                 <a href="index.html#services">Services</a>
                 <a href="index.html#secteurs">Secteurs</a>
@@ -418,7 +422,11 @@
 
     <!-- FOOTER MINIMAL -->
     <footer class="error-footer">
-        <p>© 2025 <a href="index.html">Mystic Digital Solutions</a> — Tous droits réservés.</p>
+        <div style="display:flex; flex-direction:column; align-items:center;">
+            <p style="margin:0;">© 2025 <a href="index.html">Mystic Digital Solutions</a> — Tous droits réservés.</p>
+            <div style="font-size:11px; color:#64748B; font-weight:normal; margin-top:8px; text-align:center;">RCCM :
+                RB/NAT/22 A 2010 | IFU : 0202213876129</div>
+        </div>
     </footer>
 
     <script src="js/main.min.js" defer></script>
