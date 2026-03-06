@@ -91,6 +91,7 @@
       <nav class="nav-links">
         <a href="#services">Services</a>
         <a href="#secteurs">Secteurs</a>
+        <a href="portfolio.html">Portfolio</a>
         <a href="#apropos">À Propos</a>
         <a href="#equipe">Équipe</a>
         <a href="#contact">Contact</a>
@@ -106,6 +107,7 @@
   <nav class="mobile-nav" id="mobileNav">
     <a href="#services" class="mobile-link">Services</a>
     <a href="#secteurs" class="mobile-link">Secteurs</a>
+    <a href="portfolio.html" class="mobile-link">Portfolio</a>
     <a href="#apropos" class="mobile-link">À Propos</a>
     <a href="#equipe" class="mobile-link">Équipe</a>
     <a href="#contact" class="mobile-link">Contact</a>
@@ -422,6 +424,99 @@
           </div>
           <div class="secteur-name">Tourisme</div>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PORTFOLIO ===================== -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label fade-in" style="font-size:12px; text-transform:uppercase; color:#2563EB;">Nos
+          Réalisations</span>
+        <h2 class="fade-in">Des projets concrets, des résultats mesurables</h2>
+        <div class="section-divider fade-in"></div>
+      </div>
+      <div class="portfolio-grid">
+        <!-- Projet 1 : CliniPro -->
+        <div class="portfolio-card fade-in">
+          <div class="portfolio-image-wrapper">
+            <img src="images/portfolio/clinipro.png"
+              alt="Médecin africain utilisant une tablette dans une clinique moderne" loading="lazy">
+            <span class="portfolio-sector-tag">Santé</span>
+          </div>
+          <div class="portfolio-content">
+            <h3>CliniPro : Digitalisation d'une clinique à Cotonou</h3>
+            <p class="portfolio-description">Développement d'un dossier patient numérique complet et d'un tableau de
+              bord de gestion pour une clinique de 45 lits à Cotonou. Le système centralise les consultations,
+              ordonnances, examens et facturation.</p>
+            <div class="portfolio-results">
+              <div class="portfolio-result-item">✅ -60% temps de recherche patient</div>
+              <div class="portfolio-result-item">✅ +35% nouveaux patients</div>
+              <div class="portfolio-result-item">✅ -70% erreurs facturation</div>
+            </div>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">React</span>
+              <span class="portfolio-tag">PostgreSQL</span>
+              <span class="portfolio-tag">Node.js</span>
+              <span class="portfolio-tag">Power BI</span>
+            </div>
+          </div>
+        </div>
+        <!-- Projet 2 : BatiGroup -->
+        <div class="portfolio-card fade-in fade-delay-1">
+          <div class="portfolio-image-wrapper">
+            <img src="images/portfolio/batigroup.png" alt="Chef de chantier africain avec tablette sur un chantier"
+              loading="lazy">
+            <span class="portfolio-sector-tag">BTP</span>
+          </div>
+          <div class="portfolio-content">
+            <h3>BatiGroup : Suivi de chantier en temps réel</h3>
+            <p class="portfolio-description">Application mobile de suivi de 5 chantiers simultanés avec pointage
+              ouvriers, consommation matériaux, photos géolocalisées et rapports hebdomadaires automatiques aux maîtres
+              d'ouvrage.</p>
+            <div class="portfolio-results">
+              <div class="portfolio-result-item">✅ -25% dépassements budgétaires</div>
+              <div class="portfolio-result-item">✅ 2h récupérées/semaine</div>
+              <div class="portfolio-result-item">✅ Visibilité totale 5 chantiers</div>
+            </div>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">PWA</span>
+              <span class="portfolio-tag">React</span>
+              <span class="portfolio-tag">N8N</span>
+              <span class="portfolio-tag">GPS</span>
+              <span class="portfolio-tag">PDF auto</span>
+            </div>
+          </div>
+        </div>
+        <!-- Projet 3 : ImpactPlus -->
+        <div class="portfolio-card fade-in fade-delay-2">
+          <div class="portfolio-image-wrapper">
+            <img src="images/portfolio/impactplus.png" alt="Agent de terrain africain avec smartphone dans un village"
+              loading="lazy">
+            <span class="portfolio-sector-tag">ONG</span>
+          </div>
+          <div class="portfolio-content">
+            <h3>ImpactPlus : Plateforme de suivi pour une ONG</h3>
+            <p class="portfolio-description">Système de mesure d'impact et collecte de données terrain hors connexion
+              pour une ONG opérant dans 12 communes rurales du Bénin. Rapports bailleurs générés automatiquement en
+              LaTeX.</p>
+            <div class="portfolio-results">
+              <div class="portfolio-result-item">✅ Reporting en 1 jour vs 2 sem.</div>
+              <div class="portfolio-result-item">✅ 100% données capturées</div>
+            </div>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">PWA offline</span>
+              <span class="portfolio-tag">KoboToolbox</span>
+              <span class="portfolio-tag">LaTeX</span>
+              <span class="portfolio-tag">Dashboard</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center fade-in fade-delay-3" style="margin-top: 48px;">
+        <a href="portfolio.html" class="btn btn-outline-white"
+          style="color: var(--blue); border-color: var(--blue);">Voir tous nos projets →</a>
       </div>
     </div>
   </section>
@@ -980,7 +1075,8 @@
       <div class="container">
         <div class="footer-bottom-info" style="display: flex; flex-direction: column; align-items: center;">
           <p class="footer-bottom-text" style="margin: 0;">© 2025 MDS Digital Solutions. Tous droits réservés.</p>
-          <div style="font-size: 11px; color: #64748B; font-weight: normal; margin-top: 8px; text-align: center;">RCCM : RB/NAT/22 A 2010 | IFU : 0202213876129</div>
+          <div style="font-size: 11px; color: #64748B; font-weight: normal; margin-top: 8px; text-align: center;">RCCM :
+            RB/NAT/22 A 2010 | IFU : 0202213876129</div>
         </div>
         <div class="footer-bottom-links">
           <a href="#">Mentions Légales</a>
