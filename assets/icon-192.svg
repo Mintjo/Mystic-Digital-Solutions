@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <rect width="192" height="192" rx="40" fill="#1B1F3B"/>
+  <!-- Grande lettre M centrale -->
+  <text x="96" y="130" font-family="Arial, sans-serif" font-size="90" font-weight="900"
+    text-anchor="middle" fill="#FFFFFF">M</text>
+  <!-- Point accent bleu -->
+  <circle cx="162" cy="45" r="18" fill="#2563EB"/>
+  <!-- D et S petits en bas à droite -->
+  <text x="148" y="170" font-family="Arial, sans-serif" font-size="28" font-weight="700"
+    text-anchor="middle" fill="rgba(255,255,255,0.7)">DS</text>
+</svg>

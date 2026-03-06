@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 50" fill="#94A3B8" stroke="#94A3B8">
+  <g transform="translate(5, 10)">
+    <path fill="none" stroke-width="2" d="M12 2v20M5 6h14M2 14c0 3 2 5 3 5s3-2 3-5H2zm14 0c0 3 2 5 3 5s3-2 3-5h-6M6 24h12" />
+  </g>
+  <text x="35" y="32" font-family="Inter, sans-serif" font-weight="700" font-size="14" fill="#94A3B8" stroke="none">LexAfrica</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 50" fill="#94A3B8">
+  <g transform="translate(10, 10)">
+    <path d="M12 2C6.5 2 2 6.5 2 12c0 5.5 4.5 10 10 10s10-4.5 10-10C22 6.5 17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8 0-4.4 3.6-8 8-8s8 3.6 8 8c0 4.4-3.6 8-8 8zm-1-11c-1.1-1.1-2.9-1.1-4 0v4c1.1 1.1 2.9 1.1 4 0V9zm6 0c-1.1-1.1-2.9-1.1-4 0v4c1.1 1.1 2.9 1.1 4 0V9z"/>
+  </g>
+  <text x="40" y="32" font-family="Inter, sans-serif" font-weight="700" font-size="15" fill="#94A3B8">TerraNova</text>
+</svg>

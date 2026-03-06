@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Fond carré arrondi navy -->
+  <rect width="32" height="32" rx="7" fill="#1B1F3B"/>
+  <!-- Lettres MDS -->
+  <text x="16" y="22" font-family="Arial, sans-serif" font-size="13" font-weight="900"
+    text-anchor="middle" fill="#FFFFFF" letter-spacing="-0.5">MDS</text>
+  <!-- Point bleu accent -->
+  <circle cx="26.5" cy="10" r="3" fill="#2563EB"/>
+</svg>

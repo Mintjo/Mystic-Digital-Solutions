@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .light {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .dark {
+            background: #1B1F3B;
+            padding: 20px;
+            color: white;
+        }
+
+        .img-container {
+            display: inline-block;
+            text-align: center;
+            margin: 10px;
+        }
+
+        img {
+            max-height: 100px;
+            border: 1px dashed gray;
+            background: transparent;
+        }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</head>
+
+<body>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="container cookie-container">
+            <p>Nous utilisons des cookies pour améliorer votre expérience, analyser notre trafic et personnaliser le contenu. En continuant à naviguer sur ce site, vous acceptez notre utilisation des cookies.</p>
+            <div class="cookie-btns">
+                <button id="cookie-accept" class="btn btn-primary">Accepter</button>
+                <button id="cookie-decline" class="btn btn-outline-white" style="color:#1B1F3B; border-color:#1B1F3B;">Refuser</button>
+            </div>
+        </div>
+    </div>
+
+    <h2>Fond Blanc (Header)</h2>
+    <div class="light">
+        <div class="img-container">
+            <img src="mds_base_transparent.webp"><br>mds_base_transparent.webp
+        </div>
+        <div class="img-container">
+            <img src="mds_navbar_dark.webp"><br>mds_navbar_dark.webp
+        </div>
+        <div class="img-container">
+            <img src="mds_icon_classique.webp"><br>mds_icon_classique.webp
+        </div>
+    </div>
+
+    <h2>Fond Bleu Foncé (Footer)</h2>
+    <div class="dark">
+        <div class="img-container">
+            <img src="mds_base_transparent.webp"><br>mds_base_transparent.webp
+        </div>
+        <div class="img-container">
+            <img src="mds_navbar_dark.webp"><br>mds_navbar_dark.webp
+        </div>
+        <div class="img-container">
+            <img src="mds_icon_classique.webp"><br>mds_icon_classique.webp
+        </div>
+    </div>
+</body>
+
+</html>

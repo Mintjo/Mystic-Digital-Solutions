@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 50" fill="#94A3B8">
+  <g transform="translate(10, 10)">
+    <path d="M11 2v6h6v5h-6v6H6v-6H0V8h6V2h5z"/>
+  </g>
+  <text x="35" y="32" font-family="Inter, sans-serif" font-weight="700" font-size="16" fill="#94A3B8">CliniPro</text>
+  <text x="96" y="32" font-family="Inter, sans-serif" font-weight="400" font-size="12" fill="#94A3B8">Bénin</text>
+</svg>

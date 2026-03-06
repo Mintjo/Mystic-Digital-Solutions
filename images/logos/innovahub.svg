@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 50" fill="#94A3B8">
+  <g transform="translate(10, 10)">
+    <path d="M13 2L3 14h7v8l9-12h-7L13 2z"/>
+  </g>
+  <text x="35" y="32" font-family="Inter, sans-serif" font-weight="800" font-size="16" font-style="italic" fill="#94A3B8">InnovaHub</text>
+</svg>

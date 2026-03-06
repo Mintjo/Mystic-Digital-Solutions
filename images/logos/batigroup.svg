@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 50" fill="#94A3B8">
+  <g transform="translate(10, 8)">
+    <path d="M14 24V10h6v14h4V2L12 0 2 6v18h12zm-8-3H4v-3h2v3zm0-5H4v-3h2v3zm0-5H4v-3h2v3zm6 10h-2v-3h2v3zm0-5h-2v-3h2v3zm0-5h-2v-3h2v3z"/>
+  </g>
+  <text x="40" y="32" font-family="Inter, sans-serif" font-weight="800" font-size="15" fill="#94A3B8">BatiGroup</text>
+</svg>
