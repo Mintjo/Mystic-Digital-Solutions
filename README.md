@@ -7,7 +7,7 @@
 ## 🚀 Fonctionnalités Clés
 
 - **Expertise Multi-sectorielle** : Solutions dédiées pour la Santé, le BTP, les ONG, l'Éducation, le Juridique, la Fintech, etc.
-- **Portfolio Dynamique** : Vitrine interactive des réalisations concrètes avec filtrage sectoriel.
+- **Nos Réalisations Dynamique** : Vitrine interactive des réalisations concrètes avec filtrage sectoriel.
 - **Communication Directe** : Intégration d'un bouton flottant WhatsApp pour une prise de contact instantanée.
 - **Performance Optimisée** : Code minifié (CSS/JS) pour un temps de chargement ultra-rapide.
 - **Conformité & Légalité** : Intégration des mentions légales (RCCM, IFU) et respect de la confidentialité (RGPD/Bénin).
