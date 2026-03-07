@@ -2,7 +2,7 @@
 //  MDS SERVICE WORKER — Cache first pour les assets statiques
 // =====================================================
 
-const CACHE_NAME = 'mds-cache-v1';
+const CACHE_NAME = 'mds-cache-v2';
 const STATIC_ASSETS = [
     '/',
     '/index.html',
