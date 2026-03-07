@@ -9,6 +9,7 @@ const STATIC_ASSETS = [
     '/css/style.css',
     '/js/main.js',
     '/manifest.json',
+    '/mds_icon_classique.webp',
     '/assets/favicon.svg',
     '/assets/icon-192.svg',
     '/assets/icon-512.svg',
