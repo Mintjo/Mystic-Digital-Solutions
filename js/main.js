@@ -2,6 +2,9 @@
 //   MYSTIC DIGITAL SOLUTIONS — MAIN JS
 // =====================================================
 
+// === EMAILJS INIT ===
+emailjs.init("6LaQx41AMwkFoqlut");
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // === COOKIE BANNER LOGIC ===
@@ -286,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         client.from('contact_messages').insert([
           { nom, email, secteur, besoin: besoinVal, message }
-        ]).then(({ error }) => {
+        ]).then(async ({ error }) => {
           submitBtn.classList.remove('loading');
           submitBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg> Envoyer mon message';
 
@@ -294,6 +297,20 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('[MDS] Erreur Supabase:', error);
             alert("Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer ultérieurement.");
           } else {
+            // Envoi notification email via EmailJS
+            try {
+              await emailjs.send("service_368gw08", "t4x52jo", {
+                from_name: nom,
+                from_email: email,
+                secteur: secteur,
+                besoin: besoinVal,
+                message: message,
+                to_email: "contact@mysticdigitalsolutions.com",
+              });
+            } catch (emailError) {
+              console.warn("Email notification failed:", emailError);
+            }
+
             form.style.display = 'none';
             if (formSuccess) formSuccess.classList.add('visible');
           }
