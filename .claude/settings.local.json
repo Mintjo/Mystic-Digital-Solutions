@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"C:\\\\Users\\\\ADMIN\\\\Desktop\\\\Mystic Digital Solutions\" && node --check js/main.min.js && echo \"Syntax OK\" && node --check js/main.js && echo \"Syntax OK\")",
+      "Bash(ls \"C:\\\\Users\\\\ADMIN\\\\.claude\\\\projects\\\\C--Users-ADMIN-Desktop-Mystic-Digital-Solutions\\\\memory\\\\\" 2>/dev/null || echo \"MISSING\")"
+    ]
+  }
+}
