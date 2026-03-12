@@ -3,7 +3,9 @@
 // =====================================================
 
 // === EMAILJS INIT ===
-emailjs.init("6LaQx41AMwkFoqlut");
+if (typeof emailjs !== 'undefined') {
+  emailjs.init("6LaQx41AMwkFoqlut");
+}
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -24,15 +26,24 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       // Sinon on cache
       cookieBanner.style.display = 'none';
-      if (cookieConsent === 'declined') {
-        // En cas de refus, on peut désactiver le code Google Analytics existant
-        window['ga-disable-G-XXXXXXXXXX'] = true;
+      if (cookieConsent === 'accepted') {
+        // Consentement déjà donné : activer GA immédiatement
+        if (typeof gtag !== 'undefined') {
+          gtag('consent', 'update', { 'analytics_storage': 'granted', 'ad_storage': 'granted' });
+        }
+      } else if (cookieConsent === 'declined') {
+        // Refus confirmé : désactiver le suivi GA
+        window['ga-disable-G-8LZMS2YV5X'] = true;
       }
     }
 
     // Gestion du clic Accepter
     acceptBtn?.addEventListener('click', () => {
       localStorage.setItem('mds_cookie_consent', 'accepted');
+      // Activer Google Analytics après consentement explicite
+      if (typeof gtag !== 'undefined') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted', 'ad_storage': 'granted' });
+      }
       cookieBanner.style.transform = 'translateY(100%)';
       setTimeout(() => cookieBanner.style.display = 'none', 400);
     });
@@ -40,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Gestion du clic Refuser
     declineBtn?.addEventListener('click', () => {
       localStorage.setItem('mds_cookie_consent', 'declined');
-      window['ga-disable-G-XXXXXXXXXX'] = true; // Désactiver le suivi GA côté client
+      window['ga-disable-G-8LZMS2YV5X'] = true; // Désactiver le suivi GA côté client
       cookieBanner.style.transform = 'translateY(100%)';
       setTimeout(() => cookieBanner.style.display = 'none', 400);
     });
@@ -295,7 +306,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
           if (error) {
             console.error('[MDS] Erreur Supabase:', error);
-            alert("Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer ultérieurement.");
+            // Afficher l'erreur dans la page (sans alert bloquant)
+            let errMsg = document.getElementById('form-error-msg');
+            if (!errMsg) {
+              errMsg = document.createElement('p');
+              errMsg.id = 'form-error-msg';
+              errMsg.style.cssText = 'color:#ef4444;font-size:14px;margin-top:12px;text-align:center;';
+              form.parentNode.insertBefore(errMsg, form.nextSibling);
+            }
+            errMsg.textContent = "Une erreur s'est produite. Veuillez réessayer ou nous écrire directement à contact@mysticdigitalsolutions.com";
           } else {
             // Envoi notification email via EmailJS
             try {

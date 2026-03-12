@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.mysticdigitalsolutions.com/index.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <loc>https://www.mysticdigitalsolutions.com/</loc>
+    <lastmod>2026-03-11</lastmod>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.mysticdigitalsolutions.com/portfolio.html</loc>
+    <lastmod>2026-03-11</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.mysticdigitalsolutions.com/services/data-analytics.html</loc>
+    <lastmod>2026-03-11</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.mysticdigitalsolutions.com/services/developpement-web.html</loc>
+    <lastmod>2026-03-11</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.mysticdigitalsolutions.com/services/developpement-apps.html</loc>
+    <lastmod>2026-03-11</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.mysticdigitalsolutions.com/services/automatisation.html</loc>
+    <lastmod>2026-03-11</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.mysticdigitalsolutions.com/services/consulting.html</loc>
+    <lastmod>2026-03-11</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.mysticdigitalsolutions.com/services/documents-techniques.html</loc>
+    <lastmod>2026-03-11</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.mysticdigitalsolutions.com/secteurs/agritech.html</loc>

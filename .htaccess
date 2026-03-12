@@ -1,0 +1,94 @@
+# =====================================================
+#  MYSTIC DIGITAL SOLUTIONS — Configuration Serveur
+#  En-têtes de sécurité HTTP & redirections
+# =====================================================
+
+# ===== HTTPS REDIRECT =====
+# Décommenter en production si le serveur gère HTTPS
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ===== EN-TÊTES DE SÉCURITÉ =====
+<IfModule mod_headers.c>
+
+    # Empêche le clickjacking (intégration dans une iframe externe)
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Empêche le sniffing de type MIME
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Active le filtre XSS des navigateurs anciens
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # Force HTTPS pendant 1 an (activer uniquement si HTTPS opérationnel)
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+    # Politique de référent
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Politique de permissions (désactiver fonctionnalités non utilisées)
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+
+    # Content Security Policy
+    # Autorise : ressources propres, Google Fonts, Google Analytics, EmailJS CDN, Supabase CDN
+    Header always set Content-Security-Policy "default-src 'self'; \
+        script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net https://www.google-analytics.com; \
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; \
+        font-src 'self' https://fonts.gstatic.com; \
+        img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com; \
+        connect-src 'self' https://zjwbmrfotonzafifqzvt.supabase.co https://api.emailjs.com https://www.google-analytics.com https://analytics.google.com; \
+        frame-ancestors 'self';"
+
+</IfModule>
+
+# ===== CACHE NAVIGATEUR =====
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Images
+    ExpiresByType image/webp              "access plus 1 year"
+    ExpiresByType image/jpeg              "access plus 1 year"
+    ExpiresByType image/png               "access plus 1 year"
+    ExpiresByType image/svg+xml           "access plus 1 year"
+    ExpiresByType image/gif               "access plus 1 year"
+
+    # CSS / JS
+    ExpiresByType text/css                "access plus 1 month"
+    ExpiresByType application/javascript  "access plus 1 month"
+
+    # Fonts
+    ExpiresByType font/woff2              "access plus 1 year"
+    ExpiresByType font/woff               "access plus 1 year"
+
+    # HTML (pas de cache agressif pour les pages)
+    ExpiresByType text/html               "access plus 1 hour"
+
+    # Manifest PWA
+    ExpiresByType application/manifest+json "access plus 1 day"
+</IfModule>
+
+# ===== COMPRESSION GZIP =====
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE application/manifest+json
+</IfModule>
+
+# ===== PAGE 404 PERSONNALISÉE =====
+ErrorDocument 404 /404.html
+
+# ===== BLOQUER LES FICHIERS DE DÉVELOPPEMENT =====
+# Empêche l'accès aux fichiers Python et aux pages de test
+<FilesMatch "\.(py)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "^(get_color|test_logos)\.html$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
