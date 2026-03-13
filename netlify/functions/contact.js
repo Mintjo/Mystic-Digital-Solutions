@@ -3,9 +3,19 @@
 //   Enregistrement Supabase + Notification Email
 // =====================================================
 
+const ALLOWED_ORIGINS = [
+  'https://www.mysticdigitalsolutions.com',
+  'https://mysticdigitalsolutions.netlify.app'
+];
+
 exports.handler = async (event) => {
+  const requestOrigin = event.headers.origin || event.headers.Origin || '';
+  const allowOrigin = ALLOWED_ORIGINS.includes(requestOrigin)
+    ? requestOrigin
+    : ALLOWED_ORIGINS[0];
+
   const headers = {
-    'Access-Control-Allow-Origin': 'https://www.mysticdigitalsolutions.com',
+    'Access-Control-Allow-Origin': allowOrigin,
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Content-Type': 'application/json'
