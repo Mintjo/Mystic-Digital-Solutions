@@ -2,7 +2,31 @@
   "permissions": {
     "allow": [
       "Bash(cd \"C:\\\\Users\\\\ADMIN\\\\Desktop\\\\Mystic Digital Solutions\" && node --check js/main.min.js && echo \"Syntax OK\" && node --check js/main.js && echo \"Syntax OK\")",
-      "Bash(ls \"C:\\\\Users\\\\ADMIN\\\\.claude\\\\projects\\\\C--Users-ADMIN-Desktop-Mystic-Digital-Solutions\\\\memory\\\\\" 2>/dev/null || echo \"MISSING\")"
+      "Bash(ls \"C:\\\\Users\\\\ADMIN\\\\.claude\\\\projects\\\\C--Users-ADMIN-Desktop-Mystic-Digital-Solutions\\\\memory\\\\\" 2>/dev/null || echo \"MISSING\")",
+      "Bash(cd \"C:/Users/ADMIN/Desktop/Mystic Digital Solutions\" && python minify.py 2>&1)",
+      "Bash(cd \"C:/Users/ADMIN/Desktop/Mystic Digital Solutions\" && python minify.py 2>&1 | head -5)",
+      "Bash(cd \"C:/Users/ADMIN/Desktop/Mystic Digital Solutions\" && python minify.py 2>&1 | head -3)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//c/Users/ADMIN/Desktop/Mystic Digital Solutions/**)",
+      "Bash(done)",
+      "Bash(cd \"C:\\\\Users\\\\ADMIN\\\\Desktop\\\\Mystic Digital Solutions\" && sed -n '355,370p' services/automatisation.html services/consulting.html services/developpement-apps.html services/developpement-web.html services/documents-techniques.html)",
+      "WebFetch(domain:mysticdigitalsolutions.netlify.app)",
+      "Bash(curl -sI \"https://mysticdigitalsolutions.netlify.app/\" | head -40)",
+      "Bash(curl -sI \"https://mysticdigitalsolutions.netlify.app/css/style.min.css\")",
+      "Bash(curl -sI \"https://mysticdigitalsolutions.netlify.app/secteurs/sante.html\" | grep -E \"HTTP|Content-Type|CSP|Location\")",
+      "Bash(curl -sI \"https://mysticdigitalsolutions.netlify.app/css/services.css\" | grep -E \"HTTP|Content\")",
+      "Bash(curl -s \"https://mysticdigitalsolutions.netlify.app/secteurs/sante.html\" | head -60)",
+      "Bash(curl -s \"https://mysticdigitalsolutions.netlify.app/services/data-analytics.html\" | grep -E \"<link|<script|<style\" | head -20)",
+      "Bash(curl -s \"https://mysticdigitalsolutions.netlify.app/services/automatisation.html\" | grep -E \"<link rel=\\\\\"stylesheet\\\\\"|<script src\")",
+      "Bash(curl -so /dev/null -w \"%{http_code}\" \"https://mysticdigitalsolutions.netlify.app/.netlify/functions/contact\" -X POST -H \"Content-Type: application/json\" -H \"Origin: https://mysticdigitalsolutions.netlify.app\" -d '{\"nom\":\"Test\",\"email\":\"test@test.com\",\"secteur\":\"Santé\",\"message\":\"test message long\"}' -i 2>&1 | head -20)",
+      "Bash(curl -s \"https://mysticdigitalsolutions.netlify.app/\" | grep -oP '\\(?<=src=\"\\)[^\"]+\\\\.webp|\\(?<=src=\"\\)[^\"]+\\\\.jpg|\\(?<=src=\"\\)[^\"]+\\\\.png' | head -20)",
+      "Bash(curl -s \"https://mysticdigitalsolutions.netlify.app/\" | grep -oP '\\(?<=href=\"\\)[^\"]*\\(?=\"\\)' | sort | uniq | head -40)",
+      "Bash(curl -s \"https://mysticdigitalsolutions.netlify.app/\" | grep -E \"class=\\\\\"\\(header|hero|services|cookie|top-bar|footer|contact|faq|equipe|temoignage|secteurs|portfolio\\)\" | head -30)",
+      "Bash(curl -s \"https://mysticdigitalsolutions.netlify.app/services/automatisation.html\" | grep -c \"class=\" && curl -s \"https://mysticdigitalsolutions.netlify.app/secteurs/sante.html\" | grep -c \"class=\" && curl -s \"https://mysticdigitalsolutions.netlify.app/portfolio.html\" | grep -c \"class=\")",
+      "Bash(curl -s \"https://mysticdigitalsolutions.netlify.app/css/style.min.css\" | grep -o \"\\\\.cookie-banner\\\\|\\\\.whatsapp-float\\\\|\\\\.hero\\\\|\\\\.header\\\\|\\\\.services-grid\\\\|\\\\.faq\\\\|\\\\.portfolio-card\\\\|\\\\.card \" | sort | uniq)",
+      "Bash(curl -s \"https://mysticdigitalsolutions.netlify.app/\" | grep -oP 'tel:[^\"<]+')",
+      "Bash(curl -s \"https://mysticdigitalsolutions.netlify.app/\" | grep -B2 -A2 \"tel:\")"
     ]
   }
 }
