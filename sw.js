@@ -40,7 +40,12 @@ self.addEventListener('activate', (event) => {
 
 // Fetch : stratégie Network First, fallback cache
 self.addEventListener('fetch', (event) => {
-    // Ignorer les requêtes non-GET
+    // 1. Ignorer les requêtes vers des domaines externes (CSP + Erreurs de cache)
+    if (!event.request.url.startsWith(self.location.origin)) {
+        return; // Ne fait rien, laisse le navigateur gérer la requête normalement
+    }
+
+    // 2. Ignorer les requêtes non-GET
     if (event.request.method !== 'GET') return;
 
     event.respondWith(
