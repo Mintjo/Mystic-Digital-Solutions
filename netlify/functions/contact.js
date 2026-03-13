@@ -5,7 +5,7 @@
 
 exports.handler = async (event) => {
   const headers = {
-    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': 'https://www.mysticdigitalsolutions.com',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Content-Type': 'application/json'
@@ -28,9 +28,20 @@ exports.handler = async (event) => {
 
   const { nom, email, secteur, besoin, message } = body;
 
-  // Validation basique
+  // Validation des champs requis
   if (!nom || !email || !secteur || !message) {
     return { statusCode: 400, headers, body: JSON.stringify({ error: 'Champs requis manquants' }) };
+  }
+
+  // Validation du format email
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRe.test(email)) {
+    return { statusCode: 400, headers, body: JSON.stringify({ error: 'Adresse email invalide' }) };
+  }
+
+  // Limites de longueur pour éviter la surcharge
+  if (nom.length > 100 || email.length > 200 || message.length > 5000 || (besoin && besoin.length > 100)) {
+    return { statusCode: 400, headers, body: JSON.stringify({ error: 'Un ou plusieurs champs dépassent la taille maximale autorisée' }) };
   }
 
   // === INSERTION SUPABASE ===

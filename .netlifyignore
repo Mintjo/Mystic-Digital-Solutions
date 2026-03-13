@@ -1,0 +1,13 @@
+# =====================================================
+#   MYSTIC DIGITAL SOLUTIONS — Fichiers exclus du déploiement
+# =====================================================
+
+# Pages de développement / debug
+get_color.html
+test_logos.html
+
+# Scripts de construction Python
+*.py
+
+# Fichiers Claude Code
+.claude/
