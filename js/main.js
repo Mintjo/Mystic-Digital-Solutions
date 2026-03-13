@@ -2,10 +2,7 @@
 //   MYSTIC DIGITAL SOLUTIONS — MAIN JS
 // =====================================================
 
-// === EMAILJS INIT ===
-if (typeof emailjs !== 'undefined') {
-  emailjs.init("6LaQx41AMwkFoqlut");
-}
+// === FORMULAIRE — Les envois passent par /api/contact (serverless) ===
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -273,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (el) el.addEventListener('input', validateForm);
     });
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!validateForm()) return;
 
@@ -289,66 +286,40 @@ document.addEventListener('DOMContentLoaded', () => {
       const besoin = form.querySelector('input[name="besoin"]:checked');
       const besoinVal = besoin ? besoin.value : 'Renseignement';
 
-      // ======================================
-      //   SUPABASE INSERTION
-      // ======================================
-      const SUPABASE_URL = 'https://zjwbmrfotonzafifqzvt.supabase.co';
-      const SUPABASE_ANON_KEY = 'sb_publishable_yJF3Tb2tphpmlyfwt0Gz7w_e8oDSnbB';
+      const svgEnvoyer = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg> Envoyer mon message';
 
-      if (window.supabase) {
-        const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-        client.from('contact_messages').insert([
-          { nom, email, secteur, besoin: besoinVal, message }
-        ]).then(async ({ error }) => {
-          submitBtn.classList.remove('loading');
-          submitBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg> Envoyer mon message';
-
-          if (error) {
-            console.error('[MDS] Erreur Supabase:', error);
-            // Afficher l'erreur dans la page (sans alert bloquant)
-            let errMsg = document.getElementById('form-error-msg');
-            if (!errMsg) {
-              errMsg = document.createElement('p');
-              errMsg.id = 'form-error-msg';
-              errMsg.style.cssText = 'color:#ef4444;font-size:14px;margin-top:12px;text-align:center;';
-              form.parentNode.insertBefore(errMsg, form.nextSibling);
-            }
-            errMsg.textContent = "Une erreur s'est produite. Veuillez réessayer ou nous écrire directement à contact@mysticdigitalsolutions.com";
-          } else {
-            // Envoi notification email via EmailJS
-            try {
-              await emailjs.send("service_368gw08", "t4x52jo", {
-                from_name: nom,
-                from_email: email,
-                secteur: secteur,
-                besoin: besoinVal,
-                message: message,
-                to_email: "contact@mysticdigitalsolutions.com",
-              });
-            } catch (emailError) {
-              console.warn("Email notification failed:", emailError);
-            }
-
-            form.style.display = 'none';
-            if (formSuccess) formSuccess.classList.add('visible');
-          }
+      try {
+        const response = await fetch('/.netlify/functions/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nom, email, secteur, besoin: besoinVal, message })
         });
-      } else {
-        // Fallback si Supabase non chargé
-        const sujet = encodeURIComponent(`[MDS] Demande – ${secteur} – ${besoinVal}`);
-        const corps = encodeURIComponent(
-          `Nom : ${nom}\nEmail : ${email}\nSecteur : ${secteur}\nBesoin : ${besoinVal}\n\nMessage :\n${message}`
-        );
-        const mailtoUrl = `mailto:contact@mysticdigitalsolutions.com?subject=${sujet}&body=${corps}`;
 
-        setTimeout(() => {
-          window.location.href = mailtoUrl;
+        const data = await response.json();
+        submitBtn.classList.remove('loading');
+        submitBtn.innerHTML = svgEnvoyer;
+
+        if (!response.ok) {
+          let errMsg = document.getElementById('form-error-msg');
+          if (!errMsg) {
+            errMsg = document.createElement('p');
+            errMsg.id = 'form-error-msg';
+            errMsg.style.cssText = 'color:#ef4444;font-size:14px;margin-top:12px;text-align:center;';
+            form.parentNode.insertBefore(errMsg, form.nextSibling);
+          }
+          errMsg.textContent = data.error || "Une erreur s'est produite. Veuillez réessayer ou nous écrire directement à contact@mysticdigitalsolutions.com";
+        } else {
           form.style.display = 'none';
           if (formSuccess) formSuccess.classList.add('visible');
-          submitBtn.classList.remove('loading');
-          submitBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg> Envoyer mon message';
-        }, 1200);
+        }
+      } catch (err) {
+        console.error('[MDS] Erreur envoi formulaire :', err);
+        submitBtn.classList.remove('loading');
+        submitBtn.innerHTML = svgEnvoyer;
+        // Fallback mailto si l'API n'est pas disponible
+        const sujet = encodeURIComponent(`[MDS] Demande – ${secteur} – ${besoinVal}`);
+        const corps = encodeURIComponent(`Nom : ${nom}\nEmail : ${email}\nSecteur : ${secteur}\nBesoin : ${besoinVal}\n\nMessage :\n${message}`);
+        window.location.href = `mailto:contact@mysticdigitalsolutions.com?subject=${sujet}&body=${corps}`;
       }
     });
   }

@@ -31,14 +31,16 @@
     Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
 
     # Content Security Policy
-    # Autorise : ressources propres, Google Fonts, Google Analytics, EmailJS CDN, Supabase CDN
+    # Autorise : ressources propres, Google Fonts, Google Analytics
+    # Les appels Supabase et EmailJS passent par /.netlify/functions/contact (serverless)
     Header always set Content-Security-Policy "default-src 'self'; \
-        script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net https://www.google-analytics.com; \
+        script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; \
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; \
         font-src 'self' https://fonts.gstatic.com; \
         img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com; \
-        connect-src 'self' https://zjwbmrfotonzafifqzvt.supabase.co https://api.emailjs.com https://www.google-analytics.com https://analytics.google.com; \
-        frame-ancestors 'self';"
+        connect-src 'self' https://www.google-analytics.com https://analytics.google.com; \
+        frame-ancestors 'self'; \
+        upgrade-insecure-requests;"
 
 </IfModule>
 
