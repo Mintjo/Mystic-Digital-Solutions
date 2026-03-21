@@ -2044,8 +2044,9 @@ section {
 }
 
 .portfolio-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(37, 99, 235, 0.15);
+  border-color: var(--blue);
 }
 
 .portfolio-image-wrapper {
@@ -2279,4 +2280,13 @@ section {
 
 .portfolio-link:hover {
   color: #1d4ed8;
+}
+.btn-outline-blue {
+  background: transparent;
+  color: var(--blue);
+  border: 1px solid var(--blue);
+}
+.btn-outline-blue:hover {
+  background: var(--blue);
+  color: var(--white);
 }
