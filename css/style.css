@@ -2170,22 +2170,113 @@ section {
 }
 
 .portfolio-hero {
-  background-color: var(--hero-bg);
-  padding: 120px 0 60px 0;
+  background-color: #1B1F3B;
+  min-height: 350px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.hero-pattern-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+  z-index: 1;
 }
 
 .portfolio-hero h1 {
   color: var(--white);
-  font-size: 40px;
+  font-size: 42px;
+  font-weight: 700;
   margin-bottom: 16px;
+  position: relative;
 }
 
 .portfolio-hero p {
-  color: var(--text-hero);
-  font-size: 18px;
-  max-width: 600px;
+  color: #C5C9D6;
+  font-size: 16px;
+  max-width: 650px;
   margin: 0 auto;
+  position: relative;
+  line-height: 1.6;
+}
+
+.portfolio-back-btn {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.portfolio-back-btn:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: var(--white);
+}
+
+@media (max-width: 768px) {
+  .portfolio-back-btn {
+    position: relative;
+    top: 0;
+    margin-bottom: 32px;
+  }
+  .portfolio-hero {
+    padding: 100px 0 60px;
+  }
+  .portfolio-hero h1 {
+    font-size: 32px;
+  }
+}
+
+.portfolio-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.portfolio-filter-btn {
+  background: var(--white);
+  border: none;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+}
+
+.portfolio-filter-btn:hover {
+  color: var(--blue);
+  box-shadow: 0 4px 12px rgba(37,99,235,0.1);
+  transform: translateY(-2px);
+}
+
+.portfolio-filter-btn.active {
+  background: var(--blue);
+  color: var(--white);
+  box-shadow: 0 6px 16px rgba(37,99,235,0.25);
+  transform: translateY(-2px);
 }
 
 .portfolio-grid-page {
