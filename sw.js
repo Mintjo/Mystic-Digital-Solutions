@@ -6,7 +6,7 @@ const CACHE_NAME = 'mds-cache-v3';
 const STATIC_ASSETS = [
     '/',
     '/index.html',
-    '/css/style.css',
+    '/css/style.min.css',
     '/js/main.js',
     '/manifest.json',
     '/mds_icon_classique.webp',

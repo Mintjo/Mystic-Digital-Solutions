@@ -13,25 +13,9 @@
 #   REDIRECTIONS
 # =====================================================
 
-# Forcer HTTPS
-[[redirects]]
-  from = "http://www.mysticdigitalsolutions.com/*"
-  to   = "https://www.mysticdigitalsolutions.com/:splat"
-  status = 301
-  force  = true
-
-[[redirects]]
-  from = "http://mysticdigitalsolutions.com/*"
-  to   = "https://www.mysticdigitalsolutions.com/:splat"
-  status = 301
-  force  = true
-
-# Canonicaliser le domaine sans www
-[[redirects]]
-  from = "https://mysticdigitalsolutions.com/*"
-  to   = "https://www.mysticdigitalsolutions.com/:splat"
-  status = 301
-  force  = true
+# Note : La redirection HTTP → HTTPS et la canonicalisation www/apex
+# sont gérées directement par Netlify (Domain management → Primary domain).
+# Ne pas dupliquer ces règles ici pour éviter les boucles de redirection.
 
 # =====================================================
 #   EN-TÊTES DE SÉCURITÉ HTTP

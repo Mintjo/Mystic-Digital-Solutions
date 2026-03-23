@@ -2,6 +2,9 @@
 #   MYSTIC DIGITAL SOLUTIONS — Fichiers exclus du déploiement
 # =====================================================
 
+# Dépendances (non nécessaires pour un site statique)
+node_modules/
+
 # Pages de développement / debug
 get_color.html
 test_logos.html
