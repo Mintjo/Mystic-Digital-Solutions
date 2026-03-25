@@ -1,11 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
-  <rect width="192" height="192" rx="40" fill="#1B1F3B"/>
-  <!-- Grande lettre M centrale -->
-  <text x="96" y="130" font-family="Arial, sans-serif" font-size="90" font-weight="900"
-    text-anchor="middle" fill="#FFFFFF">M</text>
-  <!-- Point accent bleu -->
-  <circle cx="162" cy="45" r="18" fill="#2563EB"/>
-  <!-- D et S petits en bas à droite -->
-  <text x="148" y="170" font-family="Arial, sans-serif" font-size="28" font-weight="700"
-    text-anchor="middle" fill="rgba(255,255,255,0.7)">DS</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <!-- Fond navy (requis pour maskable PWA) -->
+  <rect width="192" height="192" fill="#1B1F3B"/>
+  <!-- Mark géométrique MDS en blanc, dans la zone de sécurité 80% -->
+  <g transform="translate(20,20) scale(1.52)">
+    <!-- Corps gauche (forme M) -->
+    <polygon fill="#FFFFFF" points="2,97 2,34 4,30 28,14 50,52 47,57 25,97"/>
+    <!-- Diagonale haut-droite -->
+    <polygon fill="#FFFFFF" points="40,5 96,5 96,35 50,52"/>
+    <!-- Triangle bas-droite -->
+    <polygon fill="#FFFFFF" points="47,57 96,35 96,97 48,97"/>
+  </g>
 </svg>
