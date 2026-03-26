@@ -4,7 +4,7 @@
 // =====================================================
 
 const ALLOWED_ORIGINS = [
-  'https://www.mysticdigitalsolutions.com',
+  'https://mysticdigitalsolutions.com',
   'https://mysticdigitalsolutions.netlify.app'
 ];
 
